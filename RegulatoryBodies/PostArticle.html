@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Posting Article</title>
+
+    <link rel="stylesheet" href="text.css">
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
+</head>
+<body>
+
+    <div class="content">
+        <h1>Share your post</h1>
+
+        <h3>Post title</h3>
+        <input type="text" name="title" id="title">
+
+        <h3>Post Category</h3>
+        <select id="categoryDropdown" onchange="checkCustomOption()" style="width: 100%; padding: 5px;">
+            <option>Select Category</option>
+            <option value="New Scam Trend">New Scam Trend</option>
+            <option value="Popular Scam">Popular Scam</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="customCategory" id="customCategory" style="display: none;">
+
+        <h3 style="margin-top: 10px;">Post Content</h3>
+        <textarea name="myeditor" placeholder="Product Details" class="form-control" rows="12" cols="50"></textarea>
+
+        <div class="button-container" style="padding-top: 20px;">
+            <button type="submit" class="submit-btn" value="create post">Create Post</button>
+            <button type="reset" class="reset-btn" value="reset post">Reset Post</button>
+        </div>
+    </div>
+</body>
+
+  <!-- CK Editor -->
+  <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace( 'myeditor', {
+      removeButtons: 'Source'
+    });
+    CKEDITOR.replace( 'myeditor', {
+      removePlugins: 'sourcearea'
+    });
+  </script>
+  
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+      });
+    </script>
+
+  <script>
+    function checkCustomOption() {
+        var dropdown = document.getElementById("categoryDropdown");
+        var customCategoryInput = document.getElementById("customCategory");
+    
+        if (dropdown.value === "other") {
+            customCategoryInput.style.display = "block";
+        } else {
+            customCategoryInput.style.display = "none";
+        }
+    }
+  </script>
+</html>
