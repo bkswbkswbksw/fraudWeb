@@ -67,22 +67,13 @@
                         <!-- Image Input -->
                         <div class="form-group mb-4">
                             <label for="imageInput" class="fs-6 pb-2">Question Image (optional):</label>
-                        <!--     <div id="imageDropZone" class="image-drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                            <div id="imageDropZone" class="image-drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
                                 <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
                                 <br>
                                 <span>Drag & Drop or Click to Upload</span>
                             </div>
                             <input class="form-control visually-hidden" type="file" id="imageInput" accept="image/*" onchange="handleFileSelect(event)">
-                        -->
-                            <div id="uploadArea"
-                                class="border border-grey rounded-2 p-5 text-secondary text-center mb-5">
-                                <div id="uploadPrompt">
-                                    <i class="fas fa-upload"></i> Add Image
-                                </div>
-                                <img id="imagePreview" class="img-fluid mt-2"
-                                    style="display: none; max-height: 380px;" />
-                            </div>
-                        </div> 
+                        </div>
 
                         <!-- Answer Input -->
                         <div class="form-group mb-4">
@@ -161,22 +152,26 @@
             answerInputGroup.appendChild(answerInput);
 
             // image input group
-            const uploadArea = document.createElement('div');
-uploadArea.id = 'uploadArea';
-uploadArea.classList.add('border', 'border-grey', 'rounded-2', 'p-5', 'text-secondary', 'text-center', 'mb-5');
+            const imageInputGroup = document.createElement('div');
+            imageInputGroup.classList.add('form-group', 'mb-4');
 
-const uploadPrompt = document.createElement('div');
-uploadPrompt.id = 'uploadPrompt';
-uploadPrompt.innerHTML = '<i class="fas fa-upload"></i> Add Image';
+            const imageDropZone = document.createElement('div');
+            imageDropZone.id = 'imageDropZone';
+            imageDropZone.classList.add('image-drop-zone');
+            imageDropZone.setAttribute('ondrop', 'handleDrop(event)');
+            imageDropZone.setAttribute('ondragover', 'handleDragOver(event)');
 
-const imagePreview = document.createElement('img');
-imagePreview.id = 'imagePreview';
-imagePreview.classList.add('img-fluid', 'mt-2');
-imagePreview.style.display = 'none';
-imagePreview.style.maxHeight = '380px';
+            const uploadIcon = document.createElement('i');
+            uploadIcon.classList.add('fas', 'fa-cloud-upload-alt', 'fa-2x', 'mb-2');
 
-uploadArea.appendChild(uploadPrompt);
-uploadArea.appendChild(imagePreview);
+            const uploadText = document.createElement('span');
+            uploadText.textContent = 'Drag & Drop or Click to Upload';
+
+            imageDropZone.appendChild(uploadIcon);
+            imageDropZone.appendChild(document.createElement('br'));
+            imageDropZone.appendChild(uploadText);
+
+            imageInputGroup.appendChild(imageDropZone);
 
             // remove button container
             const removeButtonContainer = document.createElement('div');
