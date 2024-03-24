@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Approval</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            /* padding: 20px; */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn-approve, .btn-deny {
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-approve[disabled], .btn-deny[disabled] {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .btn-approve {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 13px;
+        }
+        .btn-deny {
+            background-color: #f44336;
+            color: white;
+            font-size: 13px;
+
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            text-align: center; /* Align tabs center */
+        }
+        .tab button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px; 
+            font-weight: 550;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .approved, .denied, .pending {
+            font-weight: bold;
+        }
+        .approved {
+            color: green;
+        }
+        .denied {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-5">
+        <h2 class="card-title mb-4">Financial Institution Registration Approval</h2>
+
+
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'All')" id="defaultOpen">All</button>
+            <button class="tablinks" onclick="openTab(event, 'Pending')">Pending</button>
+            <button class="tablinks" onclick="openTab(event, 'Approved')">Approved</button>
+            <button class="tablinks" onclick="openTab(event, 'Denied')">Denied</button>
+        </div>
+
+        <div id="All" class="tabcontent">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Deny Reason</th>
+                    </tr>
+                </thead>
+                <tbody class="fs-6">
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Trade Trax</td>
+                        <td class="approved">Approved</td>
+                        <td>
+                            <button class="btn-approve" disabled>Approve</button>
+                            <button class="btn-deny" disabled>Deny</button>
+                        </td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Pay Paladin</td>
+                        <td class="denied">Denied</td>
+                        <td>
+                            <button class="btn-approve" disabled>Approve</button>
+                            <button class="btn-deny" disabled>Deny</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <!-- New users pending approval -->
+                    <tr>
+                        <td>Mark Johnson</td>
+                        <td>mark@example.com</td>
+                        <td>Token Trend</td>
+                        <td class="pending">Pending</td>
+                        <td>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-deny">Deny</button>
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>William Johnson</td>
+                        <td>william@example.com</td>
+                        <td>Forex Frontier</td>
+                        <td class="pending">Pending</td>
+                        <td>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-deny">Deny</button>
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>Baby Johnson</td>
+                        <td>baby@example.com</td>
+                        <td>Secure Swipe</td>
+                        <td class="pending">Pending</td>
+                        <td>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-deny">Deny</button>
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>John Smith</td>
+                        <td>john@example.com</td>
+                        <td>Money Mastery</td>
+                        <td class="denied">Denied</td>
+
+                        <td>
+                            <button class="btn-approve" disabled>Approve</button>
+                            <button class="btn-deny" disabled>Deny</button>
+                        </td>
+                        <td>Failed to validate</td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+
+        <div id="Pending" class="tabcontent">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Deny Reason</th>
+                    </tr>
+                </thead>
+                <tbody class="fs-6">
+                    <!-- New users pending approval -->
+                <tr>
+                    <td>Mark Johnson</td>
+                    <td>mark@example.com</td>
+                    <td>Token Trend</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-deny">Deny</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>William Johnson</td>
+                    <td>william@example.com</td>
+                    <td>Forex Frontier</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-deny">Deny</button>
+                    </td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>Baby Johnson</td>
+                    <td>baby@example.com</td>
+                    <td>Secure Swipe</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-deny">Deny</button>
+                    </td>
+                    <td></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Approved" class="tabcontent">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Deny Reason</th>
+                    </tr>
+                </thead>
+                <tbody class="fs-6">
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Trade Trax</td>
+                        <td class="approved">Approved</td>
+                        <td>
+                            <button class="btn-approve" disabled>Approve</button>
+                            <button class="btn-deny" disabled>Deny</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Denied" class="tabcontent">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Deny Reason</th>
+                    </tr>
+                </thead>
+                <tbody class="fs-6">
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Pay Paladin</td>
+                        <td class="denied">Denied</td>
+
+                        <td>
+                            <button class="btn-approve" disabled>Approve</button>
+                            <button class="btn-deny" disabled>Deny</button>
+                        </td>
+                        <td>Failed to validate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>

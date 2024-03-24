@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Scam Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 800px; /* Max width for the entire container */
+            width: 100%;
+            display: flex;
+        }
+        .image-card {
+            flex: 1;
+            padding: 20px;
+            background-image: url('your-image-url.jpg'); /* Add your image URL here */
+            background-size: cover;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            /* Make the card wider */
+            min-width: 300px;
+            width: 50%; /* Set width to 50% to take up half of the container */
+        }
+        .login-form {
+            flex: 1;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .signup-link {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .signup-link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="image-card"></div>
+        <div class="login-form">
+            <h2>Secure Login</h2>
+            <form action="#" method="post">
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
